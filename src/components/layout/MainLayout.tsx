@@ -1,7 +1,7 @@
-import { Layout, Menu } from "antd";
-import { adminSidebarItems } from "../../routes/admin.routes";
+import { Layout} from "antd";
 
-const { Header, Content, Sider } = Layout;
+
+const { Header, Content } = Layout;
 
 
 // import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
@@ -34,7 +34,7 @@ const { Header, Content, Sider } = Layout;
 const MainLayout = () => {
   return (
     <Layout style={{ height: '100vh' }}>
-      <Sider
+      {/* <Sider
         breakpoint="lg"
         collapsedWidth="0"
         onBreakpoint={(broken) => {
@@ -62,7 +62,7 @@ const MainLayout = () => {
           items={adminSidebarItems}
         />
         
-      </Sider>
+      </Sider> */}
       <Layout>
         <Header style={{ padding: 0, background: '' }} />
         <Content style={{ margin: '24px 16px 0' }}>
