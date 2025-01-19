@@ -1,5 +1,8 @@
-import { Layout} from "antd";
+import { Button, Layout} from "antd";
 import Sidebar from "./Sidebar";
+import { useAppDispatch } from "../../redux/hooks";
+import { logout } from "../../redux/features/auth/authSlice";
+import { Outlet } from "react-router-dom";
 
 
 const { Header, Content } = Layout;
@@ -33,12 +36,19 @@ const { Header, Content } = Layout;
 
 
 const MainLayout = () => {
+  const dispatch = useAppDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
   return (
     <Layout style={{ height: '100vh' }}>
       <Sidebar/>
       {/* import sidebar and removing slider */}
       <Layout>
-        <Header style={{ padding: 0, background: '' }} />
+      <Header>
+          <Button onClick={handleLogout}>Logout</Button>{' '}
+        </Header>
         <Content style={{ margin: '24px 16px 0' }}>
           <div
             style={{
@@ -48,7 +58,7 @@ const MainLayout = () => {
               borderRadius: '',
             }}
           >
-            <h1>The main content should go here</h1>
+            <Outlet />
           </div>
         </Content>
       </Layout>
