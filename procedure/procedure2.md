@@ -6,3 +6,23 @@
 4. browser tapre refresh korlei token delete hoye jabe so localState e persisit korte hobe.
 
 5. authSlice er kaj korbo for token sent korar jonno
+
+6. work store.ts after authSlice and baseapi auth api.
+
+token pawar jonno fronted er baseApi credentials true and backend app.ts e credentials true dite hobe.
+
+7. decode token.
+
+8. Persist reducer
+
+<!--      -->
+
+
+Serializable and Non-Serializable
+
+
+
+
+
+<!--  -->
+
