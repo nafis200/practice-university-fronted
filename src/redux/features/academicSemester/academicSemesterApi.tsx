@@ -11,4 +11,4 @@ const academicSemesterApi = baseApi.injectEndpoints({
   }),
 });
 
-export const { useGetAllSemestersQuery } = academicSemesterApi;
+export const { useGetAllSemestersQuery } = academicSemesterApi
