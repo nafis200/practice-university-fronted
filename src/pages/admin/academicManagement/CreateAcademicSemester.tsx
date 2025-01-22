@@ -11,7 +11,6 @@ import { useAddAcademicSemesterMutation } from '../../../redux/features/admin/ac
 import { toast } from 'sonner';
 import { TResponse } from '../../../types/global';
 
-
 const currentYear = new Date().getFullYear();
 const yearOptions = [0, 1, 2, 3, 4].map((number) => ({
   value: String(currentYear + number),
@@ -36,8 +35,8 @@ const CreateAcademicSemester = () => {
 
     try {
       const res = (await addAcademicSemester(semesterData)) as TResponse<{
-        sucess:true,
-        message:"Create Academic Semester"
+        success:true,
+        message:"academic"
       }>;
       console.log(res);
       if (res.error) {
@@ -45,7 +44,6 @@ const CreateAcademicSemester = () => {
       } else {
         toast.success('Semester created', { id: toastId });
       }
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err) {
       toast.error('Something went wrong', { id: toastId });
     }

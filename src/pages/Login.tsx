@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Button, Row } from 'antd';
 import { FieldValues } from 'react-hook-form';
 import { useLoginMutation } from '../redux/features/auth/authApi';
 import { useAppDispatch } from '../redux/hooks';
-import { setUser, TUser } from '../redux/features/auth/authSlice';
+import { TUser, setUser } from '../redux/features/auth/authSlice';
 import { verifyToken } from '../utils/verifyToken';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
@@ -20,15 +19,9 @@ const Login = () => {
   //   },
   // });
 
-  // defaultValues: {
-  //   userId: 'A-20006',
-  //   password: '123',
-  // },
-  
-
   const defaultValues = {
-    userId: 'A-20006',
-    password: '123',
+    userId: 'A-0001',
+    password: 'admin123',
   };
 
   const [login] = useLoginMutation();
@@ -47,6 +40,7 @@ const Login = () => {
       dispatch(setUser({ user: user, token: res.data.accessToken }));
       toast.success('Logged in', { id: toastId, duration: 2000 });
       navigate(`/${user.role}/dashboard`);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err) {
       toast.error('Something went wrong', { id: toastId, duration: 2000 });
     }

@@ -1,27 +1,3 @@
-// import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-
-// export const baseApi = createApi({
-//   reducerPath: 'baseApi',
-//   baseQuery: fetchBaseQuery({
-//     baseUrl: 'http://localhost:5000/api/v1',
-//     credentials: 'include',
-//     // its include cookie into browser
-//     // credentials na dile cookie set hobe na
-
-//   }),
-
-//   endpoints: () => ({}),
-//   // endpoints: (builder) => ({
-//   //   login: builder.mutation({
-//   //     query: (userInfo) => ({
-//   //       url: '/auth/login',
-//   //       method: 'POST',
-//   //       body: userInfo,
-//   //     }),
-//   //   }),
-//   // }),
-// });
-
 import {
   BaseQueryApi,
   BaseQueryFn,
@@ -48,8 +24,6 @@ const baseQuery = fetchBaseQuery({
   },
 });
 
-// custom query make korar somay must be 3 ta parameter dite hobe see docs.args, api, extraOptions
-
 const baseQueryWithRefreshToken: BaseQueryFn<
   FetchArgs,
   BaseQueryApi,
@@ -58,10 +32,9 @@ const baseQueryWithRefreshToken: BaseQueryFn<
 > = async (args, api, extraOptions): Promise<any> => {
   let result = await baseQuery(args, api, extraOptions);
 
-  if(result?.error?.status === 404){
-    toast.error("User not found")
+  if (result?.error?.status === 404) {
+    toast.error(result.error.data.message);
   }
-
   if (result?.error?.status === 401) {
     //* Send Refresh
     console.log('Sending refresh token');
@@ -84,9 +57,6 @@ const baseQueryWithRefreshToken: BaseQueryFn<
       );
 
       result = await baseQuery(args, api, extraOptions);
-
-      // je api karone expire hoyeche or fail hoyeche sei api ke again call korte hobe
-
     } else {
       api.dispatch(logout());
     }
