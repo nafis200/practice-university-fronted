@@ -96,7 +96,7 @@ const CreateStudent = () => {
     useGetAllSemestersQuery(undefined);
 
   const { data: dData, isLoading: dIsLoading } =
-    useGetAcademicDepartmentsQuery(undefined, {skip:sIsLoading});
+    useGetAcademicDepartmentsQuery(undefined);
 
   const semesterOptions = sData?.data?.map((item) => ({
     value: item._id,
@@ -123,8 +123,6 @@ const CreateStudent = () => {
 
     //! This is for development
     //! Just for checking
-    console.log(formData.get('data'))
-    // console.log(formData.get('file'))
     console.log(Object.fromEntries(formData));
   };
 
@@ -133,7 +131,7 @@ const CreateStudent = () => {
       <Col span={24}>
         <PHForm onSubmit={onSubmit} defaultValues={studentDefaultValues}>
           <Divider>Personal Info.</Divider>
-          <Row gutter={24}>
+          <Row gutter={8}>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
               <PHInput type="text" name="name.firstName" label="First Name" />
             </Col>
