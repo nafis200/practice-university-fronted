@@ -45,6 +45,7 @@ const studentCourseApi = baseApi.injectEndpoints({
         };
       },
       providesTags: ['offeredCourse'],
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       transformResponse: (response: TResponseRedux<any>) => {
         return {
           data: response.data,

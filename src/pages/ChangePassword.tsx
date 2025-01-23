@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button, Row } from 'antd';
 import PHForm from '../components/form/PHForm';
 import PHInput from '../components/form/PHInput';
@@ -6,7 +7,7 @@ import { useChangePasswordMutation } from '../redux/features/admin/userManagemen
 import { TResponse } from '../types';
 import { useAppDispatch } from '../redux/hooks';
 import { logout } from '../redux/features/auth/authSlice';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const ChangePassword = () => {
   const [changePassword] = useChangePasswordMutation();

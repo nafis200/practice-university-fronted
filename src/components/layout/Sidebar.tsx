@@ -6,7 +6,7 @@ import { studentPaths } from '../../routes/student.routes';
 import { useAppSelector } from '../../redux/hooks';
 import {
   TUser,
-  selectCurrentUser,
+  // selectCurrentUser,
   useCurrentToken,
 } from '../../redux/features/auth/authSlice';
 import { verifyToken } from '../../utils/verifyToken';

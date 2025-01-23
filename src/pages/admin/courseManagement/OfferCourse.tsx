@@ -90,7 +90,7 @@ const OfferCourse = () => {
           <PHSelect
             name="semesterRegistration"
             label="Semester Registrations"
-            options={semesterRegistrationOptions}
+             options={semesterRegistrationOptions}
           />
           <PHSelect
             name="academicFaculty"

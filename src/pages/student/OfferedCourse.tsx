@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button, Col, Row } from 'antd';
 import {
   useEnrolCourseMutation,
   useGetAllOfferedCoursesQuery,
 } from '../../redux/features/student/studentCourseManagement.api';
+import type { ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from 'react';
 
 type TCourse = {
   [index: string]: any;
@@ -27,7 +29,7 @@ const OfferedCourse = () => {
 
   const modifiedData = Object.values(singleObject ? singleObject : {});
 
-  const handleEnroll = async (id) => {
+  const handleEnroll = async (id: any) => {
     const enrollData = {
       offeredCourse: id,
     };
@@ -49,7 +51,7 @@ const OfferedCourse = () => {
               <h2>{item.courseTitle}</h2>
             </div>
             <div>
-              {item.sections.map((section) => {
+              {item.sections.map((section: { section: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; days: any[]; startTime: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; endTime: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; _id: any; }) => {
                 return (
                   <Row
                     justify="space-between"
